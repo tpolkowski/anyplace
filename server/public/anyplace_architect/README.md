@@ -16,7 +16,8 @@ $ npm install
 Or (for Windows)
 
 ```
-$ npm install -g grunt-cli
+$ npm install
+$ npm install grunt-cli
 ```
 
 ### Building the app

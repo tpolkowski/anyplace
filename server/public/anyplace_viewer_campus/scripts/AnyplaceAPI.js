@@ -40,7 +40,7 @@ var AnyplaceAPI = {};
 
 // AnyplaceAPI.FULL_SERVER = "https://ap.cs.ucy.ac.cy/anyplace";
 
-AnyplaceAPI.FULL_SERVER = "https://ap-dev.cs.ucy.ac.cy/anyplace";
+AnyplaceAPI.FULL_SERVER = "https://polkowski.duckdns.org/anyplace";
 
 /**
  * MAPPING API
