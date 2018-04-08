@@ -8,7 +8,7 @@
       "description": "You can find your API key (access_token) by signing in Anyplace Architect, in the \"More\" section."
     }
   ],
-  "baseurl": "http://polkowski.duckdns.org/anyplace",
+  "baseurl": "https://polkowski.duckdns.org/anyplace",
   "endpoints": [
     {
       "name": "Navigation",

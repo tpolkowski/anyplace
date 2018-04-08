@@ -27,7 +27,7 @@
 
 var AnyplaceAPI = {};
 
-AnyplaceAPI.FULL_SERVER = "http://polkowski.duckdns.org/anyplace";
+AnyplaceAPI.FULL_SERVER = "https://polkowski.duckdns.org/anyplace";
 
 // AnyplaceAPI.FULL_SERVER = "https://ap.cs.ucy.ac.cy/anyplace";
 

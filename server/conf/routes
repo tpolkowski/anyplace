@@ -3,7 +3,7 @@
 # ~~~~
 # Map static resources from the /public folder to the /assets URL path
 GET         /assets/*file                                                              controllers.Assets.at(path="/public", file)
-GET         /.well-known/acme-challenge/*file                                          controllers.Assets.at(path="/public/.well-known/acme-challenge", file)
+#GET         /.well-known/acme-challenge/*file                                          controllers.Assets.at(path="/public/.well-known/acme-challenge", file)
 # OAuth2 API
 POST        /accounts/oauth2/token                                                     oauth.provider.v2.controllers.AnyplaceOAuth.token()
 # Anyplace API - Navigation
