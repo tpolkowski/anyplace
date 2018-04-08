@@ -81,7 +81,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:host="ap.cs.ucy.ac.cy"
+                    android:host="polkowski.duckdns.org"
                     android:pathPrefix="/getnavigation"
                     android:scheme="https" >
                 </data>
@@ -167,7 +167,7 @@
        
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="insert_api_key" />
+            android:value="AIzaSyAp2LQKOHh6_Yk84q-hCpmQXM4w4XpGVJk" />
     </application>
 
 </manifest>
