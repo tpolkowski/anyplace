@@ -104,7 +104,8 @@ ImageFileName="$imagePath"
 echo
 echo ":: Starting anyplace-tiler ..."
 anyTiler="$scriptsDir/anyplace-tiler.py" 
-
+echo "$anyTiler"
+echo "$anyTiler" "$scriptsDir" "$ImageLatitude" "$ImageLongitude" "$ZoomOriginal" "$ZoomDestination" "$ImageFileName"
 python "$anyTiler" "$scriptsDir" "$ImageLatitude" "$ImageLongitude" "$ZoomOriginal" "$ZoomDestination" "$ImageFileName"
 check_for_errors
 
