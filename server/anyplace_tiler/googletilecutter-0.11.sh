@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Cuts an image into tiles suitable for use with Google Maps.
 #
 # Copyright (C) 2006-2007 Ian C. Stevens (http://crazedmonkey.com/)
@@ -17,41 +16,38 @@
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
-
-usage="Usage: googletilecutter.sh [-1kqh] [-p x,y] [-r tile prefix] 
-                           -z zoom -o top-left-zoom -t x,y file
-
-This script cuts an image into tiles suitable for use with Google Maps.  The
-tiles are produced from the given file for the given zoom and calculated based
-on the coordinates of the top-left tile at a possibly higher zoom.  To tile
-files for various zoom levels, one only need change the zoom as specified by
--z.
-
-Tiles follow the naming convention of zAxByC.png, where A, B and C are the zoom
-level and the x and y coordinates of that tile, respectively.
-
-    -z zoom     The map zoom level the given file represents.
-    -o zoom     The map zoom level for the top-left tile as given by -t. 
-    -t x,y      The x and y coordinates of the top-left tile for
-                the zoom level specified by -o.
-    -p x,y      The x and y padding from the left and top.  Defaults to 0,0.
-    -r prefix   Prefix for each tile.  By default, no prefix is added.
-    -1          Specifies that version 1 zoom levels should be used.  That 
-                is, the zoom level decreases to 1, the most detailed level.
-                By default version 2 zoom levels are used.
-    -k          Keep empty transparent tiles.  By default, empty transparent
-                tiles are deleted.
-    -q          Quiet mode.  Suppress all output.
-    -h          Display the help message.
-
-This script requires ImageMagick for image manipulation and either advpng or
-pngcrush for PNG compression.
-
-Googletilecutter, Copyright (C) 2006-7 Ian C. Stevens (http://crazedmonkey.com)
-This software comes with ABSOLUTELY NO WARRANTY. This is free software, and you
-are welcome to redistribute it under certain conditions.
-"
-
+# usage="Usage: googletilecutter.sh [-1kqh] [-p x,y] [-r tile prefix] 
+#                            -z zoom -o top-left-zoom -t x,y file
+# 
+# This script cuts an image into tiles suitable for use with Google Maps.  The
+# tiles are produced from the given file for the given zoom and calculated based
+# on the coordinates of the top-left tile at a possibly higher zoom.  To tile
+# files for various zoom levels, one only need change the zoom as specified by
+# -z.
+# 
+# Tiles follow the naming convention of zAxByC.png, where A, B and C are the zoom
+# level and the x and y coordinates of that tile, respectively.
+# 
+#     -z zoom     The map zoom level the given file represents.
+#     -o zoom     The map zoom level for the top-left tile as given by -t. 
+#     -t x,y      The x and y coordinates of the top-left tile for
+#                 the zoom level specified by -o.
+#     -p x,y      The x and y padding from the left and top.  Defaults to 0,0.
+#     -r prefix   Prefix for each tile.  By default, no prefix is added.
+#     -1          Specifies that version 1 zoom levels should be used.  That 
+#                 is, the zoom level decreases to 1, the most detailed level.
+#                 By default version 2 zoom levels are used.
+#     -k          Keep empty transparent tiles.  By default, empty transparent
+#                 tiles are deleted.
+#     -q          Quiet mode.  Suppress all output.
+#     -h          Display the help message.
+# 
+# This script requires ImageMagick for image manipulation and either advpng or
+# pngcrush for PNG compression.
+# 
+# Googletilecutter, Copyright (C) 2006-7 Ian C. Stevens (http://crazedmonkey.com)
+# This software comes with ABSOLUTELY NO WARRANTY. This is free software, and you
+# are welcome to redistribute it under certain conditions.
 zoom=""
 orgZoom=""
 topX=""
@@ -63,8 +59,7 @@ padY=0
 prefix=""
 keepEmpty=0
 quiet=0
-while getopts ":z:o:t:f:p:r:1kqh" options; do
-  case $options in
+while getopts ":z:o:t:f:p:r:1kqh" options; do case $options in    
     z ) zoom=$OPTARG;;
     o ) orgZoom=$OPTARG;;
     t ) topX=`expr "$OPTARG" : '\(.*\),'`

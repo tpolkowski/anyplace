@@ -9,7 +9,8 @@ can_use_as_dir() {
 [[ "$#" != 1 ]] && echo "No cleaning has happened!" && exit 1
 
 # navigate to the correct directory
-cd "$(dirname "$1")"
+DIR_STRUCTURE="$(dirname "$1")"
+cd "$DIR_STRUCTURE"
 
 # make sure the TILES directory exists or create it
 TILES_DIR="static_tiles"
@@ -18,7 +19,7 @@ if [ ! -e $TILES_DIR ]; then
 	mkdir $TILES_DIR
 fi
 # verify the creation of the tile dir
-can_use_as_dir $TILES_DIR
+can_use_as_dir "$TILES_DIR"
 
 # the tile files have names with convention: z[ZOOM]x[TILE_X]y[TILE_Y].png
 REGEX="^z[0-9]+x[0-9]+y[0-9]+[.]png$"
@@ -42,6 +43,7 @@ do
 		mv $filename "$zoomDir/$filename"
 	fi
 done
+cd ..
 
 
 # find the Coordinates bounds of each zoom. 
@@ -82,11 +84,13 @@ do
 done	
 
 # create the archive that contains all the necessary tiles and meta data file
+cd "$DIR_STRUCTURE"
 cd "$TILES_DIR"
+
 ls | grep -e "[^(.zip)]$" | xargs zip -r tiles_archive.zip 
 cd ..
 
 # delete the temporary images in the dir
-rm -f padded-image.png zoom-sized-image-z*.png
+# rm -f padded-image.png zoom-sized-image-z*.png
 
 echo -e "Everything has been cleaned up!"

@@ -3,14 +3,16 @@ package utils
 import play.Logger
 import java.io._
 import java.nio.file.Files
+
+import sun.misc.Regexp
 //remove if not needed
 import scala.collection.JavaConversions._
 
 object AnyPlaceTilerHelper {
 
-    private val ANYPLACE_TILER_SCRIPTS_DIR = "anyplace_tiler"
+    private val ANYPLACE_TILER_SCRIPTS_DIR = "/mnt/c/Git/anyplace/server/anyplace_tiler"
 
-    private val ANYPLACE_TILER_SCRIPT_START = ANYPLACE_TILER_SCRIPTS_DIR + File.separatorChar + "start-anyplace-tiler.sh"
+    private val ANYPLACE_TILER_SCRIPT_START = ANYPLACE_TILER_SCRIPTS_DIR + "/start-anyplace-tiler.sh"
 
     private val FLOOR_PLANS_ROOT_DIR = "floor_plans" + File.separatorChar
 
@@ -92,7 +94,13 @@ object AnyPlaceTilerHelper {
               imageFile.toString +
               "]")
         }
-        val pb = new ProcessBuilder(ANYPLACE_TILER_SCRIPT_START, imageFile.getAbsolutePath.toString, lat,
+        var imageFilePath = imageFile.getAbsolutePath.toString;
+        imageFilePath = imageFilePath.replaceAll(":\\\\|\\\\", "/");
+        if (imageFilePath.charAt(0) != '/') {
+            imageFilePath = "/mnt/" + imageFilePath
+        }
+
+        val pb = new ProcessBuilder("ubuntu", "run", ANYPLACE_TILER_SCRIPT_START, imageFilePath, lat,
             lng, "-DISLOG")
         val log = new File(imageDir, "anyplace_tiler_" + imageFile.getName + ".log")
         pb.redirectErrorStream(true)
